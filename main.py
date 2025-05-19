@@ -42,7 +42,7 @@ int suma(int a, int b) {
 }
 """
 
-token = tokenize(texto)
+token = tokenize(textoprueba)
 
 # Analizador sintáctico
 class Parser:
@@ -309,27 +309,27 @@ def imprimir_ast(nodo):
 
 #  Aquí se prueba
 try:
-    print("Iniciando análisis sintáctico...")
-    parser = Parser(token)
-    arbol_ast = parser.parsear()
-    print('Análisis sintáctico exitoso')
-    analizador_semantico = AnalizadorSemantico()
-    analisis = analizador_semantico.analizar(arbol_ast)
+    # print("Iniciando análisis sintáctico...")
+    # parser = Parser(token)
+    # arbol_ast = parser.parsear()
+    # print('Análisis sintáctico exitoso')
+    # analizador_semantico = AnalizadorSemantico()
+    # analisis = analizador_semantico.analizar(arbol_ast)
 
-    print("Variables:")
-    for llave, valor in analizador_semantico.tabla_simbolos.variables.items():
-        print(f"{llave}: {valor}")
+    # print("Variables:")
+    # for llave, valor in analizador_semantico.tabla_simbolos.variables.items():
+    #     print(f"{llave}: {valor}")
         
-    print("\nFunciones:")
-    for llave, valor in analizador_semantico.tabla_simbolos.funciones.items():
-        print(f"{llave}: {valor}")
+    # print("\nFunciones:")
+    # for llave, valor in analizador_semantico.tabla_simbolos.funciones.items():
+    #     print(f"{llave}: {valor}")
     # codigo_asm = arbol_ast.generar_codigo()
     # with open("programa.asm", "w") as archivo:
     #     archivo.write(codigo_asm)
 
-    # subprocess.run(["nasm", "-f", "elf32", "programa.asm", "-o", "programa.o"])
-    # subprocess.run(["ld", "-m", "elf_i386", "-o", "programa", "programa.o"])
-    # subprocess.run(["./programa"])
+    subprocess.run(["nasm", "-f", "elf32", "helloWorld.asm", "-o", "programa.o"])
+    subprocess.run(["ld", "-m", "elf_i386", "-o", "programa", "programa.o"])
+    subprocess.run(["./programa"])
 
     # print('Análisis sintáctico exitoso')
     # print(json.dumps(imprimir_ast(arbol_ast), indent=1))
